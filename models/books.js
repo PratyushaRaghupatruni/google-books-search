@@ -8,6 +8,10 @@ const bookSchema = new Schema({
 		type: String,
 		trim: true,
 	},
+  // Subtitle of the book
+		subtitle:  { 
+			type: String 
+		},
 	
 	// Author of the book
 	author:{
@@ -18,7 +22,7 @@ const bookSchema = new Schema({
   // Description of the book 
   description :{
 		type:String,
-		trim:true,
+		required:true,
 	},
 
 	// Image 
@@ -32,6 +36,13 @@ const bookSchema = new Schema({
 		type: String,
 		required: true,
 	},
+
+	// Google Id of the book
+   
+	 googleId: { 
+		 type: String, 
+		 required: true, 
+		 unique: true }
 
 });
 
