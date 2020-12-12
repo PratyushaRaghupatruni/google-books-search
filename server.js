@@ -25,9 +25,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/google-book-sea
   useFindAndModify: false
 });
 
-// Define API routes here
-app.use("/",require("./routes/user-routes"));
-app.use("/api/notes",require("./routes/journal-routes"));
 
 // Send every other request to the React app
 app.get("*", (req, res) => {
