@@ -1,7 +1,7 @@
 {
-  "name": "google-books-search-react",
+  "name": "google-books-search",
   "version": "0.1.0",
-  "description": "Google books search MERN Application",
+  "description": "Google books search",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {

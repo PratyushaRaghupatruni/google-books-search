@@ -7,7 +7,7 @@ module.exports = {
   // Searches the Google Books API and returns only unsaved books
 	findAll: async (req, res) => {
 		try {
-
+            console.log("Welcome to google books");
 			// Fetch query parameters
 			const { query: params } = req;
 

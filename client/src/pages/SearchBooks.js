@@ -84,11 +84,11 @@ class SearchBooks extends Component {
 								{/* Jumbotron */}
 								<Jumbotron>
 									<h1 className="text-center">
-										<strong>
+										<strong style={{color:'white'}}>
 											Google Books Search
 										</strong>
 									</h1>
-									<h5 className="text-center">
+									<h5 className="text-center" style={{color:'white'}}>
 										MERN App to Search and Save
 										Books
 									</h5>
