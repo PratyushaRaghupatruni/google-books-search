@@ -7,7 +7,7 @@
 A Simple Google Book Search Application allows the user to search for the books through Google Books API .User can view,save books they like to read.User can also delete those saved books.
 
 
-#### **[Deployed Application](https://pratyusharaghupatruni.github.io/react-portfolio/)**
+#### **[Deployed Application](https://pr-google-book-search.herokuapp.com/)**
 
 ### Table of Contents
 *  [Demo](#demo)
