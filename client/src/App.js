@@ -7,7 +7,7 @@ import SavedBooks from './pages/SavedBooks';
 import NoMatch from './pages/NoMatch';
 
 // Import Components
-import Nav from './components/Nav';
+import Nav from './Components/Nav';
 
 function App() {
 	return (
