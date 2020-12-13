@@ -8,9 +8,9 @@ import { List } from "../Components/List";
 
 import './style.css';
 
-class Saved extends Component {
+class SavedBooks extends Component {
   state = {
-    books: []
+    books: [],
   };
 
   componentDidMount() {
@@ -19,20 +19,22 @@ class Saved extends Component {
 
   getSavedBooks = () => {
     API.getSavedBooks()
-      .then(res =>
+      .then((res) =>
         this.setState({
-          books: res.data
+          books: res.data,
         })
       )
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
-  handleBookDelete = id => {
-    API.deleteBook(id).then(res => this.getSavedBooks());
+  handleBookDelete = (id) => {
+    API.deleteBook(id).then((res) => this.getSavedBooks());
   };
 
   render() {
     return (
+      <>
+
       <Container>
         <Row>
           <Col size="md-12">
@@ -49,7 +51,7 @@ class Saved extends Component {
             <Card title="Saved Books" icon="download">
               {this.state.books.length ? (
                 <List>
-                  {this.state.books.map(book => (
+                  {this.state.books.map((book) => (
                     <Book
                       key={book._id}
                       title={book.title}
@@ -67,7 +69,8 @@ class Saved extends Component {
                         </button>
                       )}
                     />
-                  ))}
+                  )
+                  )}
                 </List>
               ) : (
                 <h2 className="text-center">No Saved Books</h2>
@@ -77,8 +80,9 @@ class Saved extends Component {
         </Row>
        
       </Container>
+      </>
     );
   }
 }
 
-export default Saved;
+export default SavedBooks;
