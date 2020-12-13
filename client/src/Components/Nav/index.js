@@ -3,73 +3,38 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 class Nav extends Component {
-  state = {
-    open: false,
-    width: window.innerWidth
-  };
-
-  updateWidth = () => {
-    const newState = { width: window.innerWidth };
-
-    if (this.state.open && newState.width > 991) {
-      newState.open = false;
-    }
-
-    this.setState(newState);
-  };
-
-  toggleNav = () => {
-    this.setState({ open: !this.state.open });
-  };
-
-  componentDidMount() {
-    window.addEventListener("resize", this.updateWidth);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWidth);
-  }
-
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2" style={{color:"white"}}>
-        <Link className="navbar-brand" to="/" style={{color:"white",fontSize:"x-large"}}>
+      <>
+      <nav className="navbar justify-content-start">
+        <Link
+          to="/"
+          className={
+            window.location.pathname === "/" ? "nav-link active" : "nav-link"
+          }
+        >
           <strong>Google Books</strong>
         </Link>
-        <button
-          onClick={this.toggleNav}
-          className="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+        <Link
+          to="/"
+          className={
+            window.location.pathname === "/" ? "nav-link active" : "nav-link"
+          }
         >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav" style={{color:'white'}}>
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link
-                onClick={this.toggleNav}
-                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-                to="/"
-              style={{color:"white",fontSize:"x-large"}} >
-                Search
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                onClick={this.toggleNav}
-                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
-                to="/saved"
-             style={{color:"white",fontSize:"x-large"}}  >
-                Saved
-              </Link>
-            </li>
-          </ul>
-        </div>
+          Search
+        </Link>
+        <Link
+          to="/saved"
+          className={
+            window.location.pathname === "/saved"
+              ? "nav-link active"
+              : "nav-link"
+          }
+        >
+          Saved
+        </Link>
       </nav>
+    </>
     );
   }
 }
