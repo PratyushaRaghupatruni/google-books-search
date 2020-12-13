@@ -1,20 +1,23 @@
-const axios = require("axios");
-const db = require("../models");
+const axios = require('axios');
+const db = require('../models');
 
 // Defining methods for the googleController
-
-// findAll searches the Google Books API and returns only the entries we haven't already saved
-
-// It also makes sure that the books returned from the API all contain a title, author, link, description, and image
 module.exports = {
-  findAll: async (req, res) =>{
-    try{
-    const { query: params } = req;
-    axios
-      .get("https://www.googleapis.com/books/v1/volumes", {
-        params
-      })
-      // Fetch required details from obtained results
+  
+  // Searches the Google Books API and returns only unsaved books
+	findAll: async (req, res) => {
+		try {
+
+			// Fetch query parameters
+			const { query: params } = req;
+
+			// Axios GET request to fetch books for given search query
+			const results = await axios.get(
+				'https://www.googleapis.com/books/v1/volumes',
+				{ params }
+			);
+
+			// Fetch required details from obtained results
 			const apiBooks = await results.data.items.filter(
 				(result) =>
 					result.volumeInfo.title &&

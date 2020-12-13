@@ -1,6 +1,7 @@
+/* Jumbotron style */
 .jumbotron {
   padding: 100px;
-   background: url('../../images/jumbotron.png') ;
+  background-image: url('../../images/books-Background.png') !important;
+  background-size: 100% 100%;
+  color: white;
 }
-
-
